@@ -1,0 +1,48 @@
+image: python:3.6
+options:
+  docker: true
+caches:
+  - pip
+  - docker
+definitions:
+
+  steps:
+    - step: &lint
+        name: Execute flake8 linter
+        script:
+          - pip install flake8
+          - make lint
+    
+    - step: &test
+        name: Test Tap
+        script:
+          - pip install -e .
+          - make test
+
+    - step: &build_tap
+        name: Build Docker image
+        script:
+          - make build_tap
+        artifacts:
+          - tmp-image.docker
+
+    - step: &publish_tap
+        name: Publish Tap to Docker hub
+        script:
+          - make publish_tap
+
+    - step: &increase_tap_version
+        name: Increase TAP_VERSION
+        script:
+          - chmod a+x ./bump.sh
+          - ./bump.sh
+
+pipelines:
+  branches:
+    master:
+    - step: *increase_tap_version
+    - step: *build_tap
+    - step: *publish_tap
+
+  default:
+    - step: *build_tap

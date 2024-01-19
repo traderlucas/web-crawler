@@ -1,0 +1,84 @@
+{
+    "streams": [
+        {
+            "stream_alias": "ldm",
+            "stream": "ldm",
+            "tap_stream_id": "ldm",
+            "schema": {
+                "selected": true,
+                "type": "object",
+                "required": [],
+                "properties": {
+                    "URL": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "sku_ferimport": {
+                        "type": [
+                            "number",
+                            "null"
+                        ]
+                    },
+                    "grade_ferimport": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "grade_concorrente": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "preco_vista": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "preco_prazo": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "disponibilidade": {
+                        "type": [
+                            "boolean",
+                            "null"
+                        ]
+                    },
+                    "observacao": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "extracted_at": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    }
+                   
+                }
+            },
+            "metadata": [
+                {
+                    "metadata": {
+                        "selected": true,
+                        "table-key-properties": [
+                            "sku_ferimport",
+                            "preco_prazo",
+                            "preco_vista"
+                        ]
+                    },
+                    "breadcrumb": []
+                }
+            ]
+        }
+    ]
+}

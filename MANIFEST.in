@@ -1,0 +1,2 @@
+include LICENSE
+include tap_produtos_crawler/schemas/*.json
